@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Propuesta Estrategica | Magna x Jahir</title>
+  <meta name="description" content="Propuesta comercial premium de Magna para construir un sistema de crecimiento de 90 dias para Jahir y su barberia.">
+  <style>
+    :root {
+      --magna-black: #05030A;
+      --magna-ink: #0B0A14;
+      --magna-graphite: #111018;
+      --magna-carbon: #1B1824;
+      --magna-deep-purple: #180A2E;
+      --magna-system-purple: #2B1552;
+      --magna-violet: #6D2CFF;
+      --magna-orchid: #B74CFF;
+      --magna-lavender: #E6D7FF;
+      --magna-gold: #D6A84F;
+      --magna-cyan: #38D7FF;
+      --magna-white: #F7F4FF;
+      --magna-muted: #AFA5C7;
+      --pure-white: #FFFFFF;
+      --line: rgba(230, 215, 255, .14);
+      --soft-line: rgba(230, 215, 255, .08);
+      --glass: rgba(17, 16, 24, .68);
+      --shadow: 0 28px 80px rgba(0, 0, 0, .42);
+      --core-gradient: linear-gradient(135deg, #180A2E, #6D2CFF 52%, #B74CFF);
+      --premium-signal: linear-gradient(135deg, #6D2CFF, #D6A84F);
+      --signal-extended: linear-gradient(135deg, #6D2CFF 0%, #B74CFF 34%, #D6A84F 100%);
+      --max: 1180px;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--magna-white);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(109, 44, 255, .24), transparent 30%),
+        radial-gradient(circle at 88% 4%, rgba(214, 168, 79, .16), transparent 26%),
+        linear-gradient(180deg, #05030A 0%, #080711 42%, #05030A 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(230, 215, 255, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(230, 215, 255, .045) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.78), transparent 78%);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto -18% -42% -18%;
+      height: 54vh;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, rgba(183, 76, 255, .18), transparent 68%);
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(24px);
+      background: rgba(5, 3, 10, .72);
+      border-bottom: 1px solid var(--soft-line);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(230, 215, 255, .16);
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, rgba(109,44,255,.22), rgba(5,3,10,.9) 64%);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 34px rgba(109, 44, 255, .22);
+      flex: 0 0 auto;
+    }
+
+    .brand-mark svg {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-copy strong {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--pure-white);
+    }
+
+    .brand-copy span {
+      color: var(--magna-muted);
+      font-size: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--magna-muted);
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: color .2s ease, background .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--magna-white);
+      background: rgba(230, 215, 255, .08);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid rgba(230, 215, 255, .18);
+      border-radius: 999px;
+      background: var(--signal-extended);
+      color: #fff;
+      font-weight: 760;
+      font-size: 14px;
+      box-shadow: 0 18px 42px rgba(109, 44, 255, .25);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      white-space: nowrap;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(230, 215, 255, .34);
+      box-shadow: 0 22px 54px rgba(109, 44, 255, .34);
+    }
+
+    .button.secondary {
+      background: rgba(230, 215, 255, .06);
+      color: var(--magna-white);
+      box-shadow: none;
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 94px 0;
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      align-items: center;
+      padding: 64px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, .72fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid rgba(230, 215, 255, .14);
+      border-radius: 999px;
+      background: rgba(230, 215, 255, .055);
+      color: var(--magna-lavender);
+      font-size: 12px;
+      font-weight: 720;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--magna-gold);
+      box-shadow: 0 0 20px rgba(214, 168, 79, .72);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin: 24px 0 24px;
+      max-width: 900px;
+      font-size: clamp(48px, 7.2vw, 104px);
+      line-height: .92;
+      letter-spacing: 0;
+      font-weight: 860;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 0%, #E6D7FF 42%, #B74CFF 72%, #D6A84F 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      color: var(--magna-muted);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 42px;
+      max-width: 760px;
+    }
+
+    .meta-card,
+    .card,
+    .panel,
+    .investment-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(17,16,24,.74), rgba(11,10,20,.54));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-card {
+      padding: 18px;
+      min-height: 104px;
+    }
+
+    .label {
+      color: var(--magna-muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 760;
+    }
+
+    .value {
+      margin-top: 10px;
+      color: var(--pure-white);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 760;
+    }
+
+    .hero-panel {
+      position: relative;
+      min-height: 580px;
+      padding: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(230, 215, 255, .16);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 72% 16%, rgba(183, 76, 255, .30), transparent 34%),
+        radial-gradient(circle at 22% 86%, rgba(214, 168, 79, .22), transparent 28%),
+        linear-gradient(180deg, rgba(17,16,24,.88), rgba(5,3,10,.78));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(230, 215, 255, .08);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+
+    .signal-ring {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -118px;
+      top: -96px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      background:
+        linear-gradient(var(--magna-black), var(--magna-black)) padding-box,
+        var(--signal-extended) border-box;
+      filter: drop-shadow(0 0 36px rgba(183, 76, 255, .22));
+      opacity: .9;
+    }
+
+    .proposal-stamp {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .placeholder-logo {
+      width: 112px;
+      height: 54px;
+      border: 1px dashed rgba(230, 215, 255, .30);
+      border-radius: var(--radius);
+      display: grid;
+      place-items: center;
+      color: var(--magna-muted);
+      font-size: 11px;
+      text-align: center;
+      padding: 8px;
+    }
+
+    .system-card {
+      position: relative;
+      z-index: 2;
+      margin-top: 110px;
+      padding: 28px;
+      border: 1px solid rgba(230, 215, 255, .14);
+      border-radius: var(--radius);
+      background: rgba(5, 3, 10, .60);
+      backdrop-filter: blur(18px);
+    }
+
+    .system-card h2 {
+      margin: 0 0 14px;
+      font-size: 32px;
+      line-height: 1.05;
+    }
+
+    .path {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .path-item {
+      padding: 14px 12px;
+      border-radius: var(--radius);
+      background: rgba(230, 215, 255, .07);
+      border: 1px solid rgba(230, 215, 255, .10);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 760;
+      min-height: 48px;
+      display: grid;
+      place-items: center;
+    }
+
+    .arrow {
+      color: var(--magna-gold);
+      font-weight: 900;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(240px, .44fr);
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      color: var(--magna-gold);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 820;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: 0;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      color: var(--magna-muted);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    .small-note {
+      color: var(--magna-muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(183, 76, 255, .34);
+      background: linear-gradient(180deg, rgba(27,24,36,.86), rgba(11,10,20,.64));
+    }
+
+    .card h3 {
+      font-size: 24px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--magna-muted);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      background: rgba(109, 44, 255, .15);
+      color: var(--magna-lavender);
+      border: 1px solid rgba(230, 215, 255, .16);
+      font-weight: 820;
+      font-size: 13px;
+    }
+
+    .diagnosis-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .diagnosis-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 15px;
+      border-radius: var(--radius);
+      background: rgba(230, 215, 255, .05);
+      border: 1px solid rgba(230, 215, 255, .08);
+      color: var(--magna-lavender);
+      line-height: 1.5;
+    }
+
+    .diagnosis-item span {
+      width: 8px;
+      height: 8px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: var(--magna-gold);
+      flex: 0 0 auto;
+      box-shadow: 0 0 18px rgba(214, 168, 79, .58);
+    }
+
+    .quote-band {
+      margin: 28px 0 0;
+      padding: 34px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(109,44,255,.24), rgba(214,168,79,.12)),
+        rgba(17,16,24,.72);
+      border: 1px solid rgba(230, 215, 255, .16);
+    }
+
+    .quote-band p {
+      margin: 0;
+      color: var(--pure-white);
+      font-size: clamp(24px, 3vw, 42px);
+      line-height: 1.15;
+      font-weight: 820;
+    }
+
+    .philosophy {
+      display: grid;
+      grid-template-columns: .84fr 1.16fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 34px;
+    }
+
+    .panel.big {
+      background:
+        radial-gradient(circle at 22% 12%, rgba(183, 76, 255, .20), transparent 30%),
+        linear-gradient(180deg, rgba(17,16,24,.88), rgba(5,3,10,.62));
+    }
+
+    .panel h3 {
+      font-size: 30px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .panel p {
+      color: var(--magna-muted);
+      line-height: 1.7;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mini {
+      padding: 20px;
+      border-radius: var(--radius);
+      background: rgba(230, 215, 255, .055);
+      border: 1px solid rgba(230, 215, 255, .08);
+    }
+
+    .mini strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--pure-white);
+    }
+
+    .mini span {
+      display: block;
+      color: var(--magna-muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stage {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 18px;
+      border: 1px solid var(--line);
+      background: rgba(17,16,24,.62);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .stage-side {
+      padding: 28px;
+      background:
+        linear-gradient(160deg, rgba(109,44,255,.25), rgba(5,3,10,.36)),
+        rgba(5,3,10,.60);
+      border-right: 1px solid rgba(230, 215, 255, .10);
+    }
+
+    .stage-side .week {
+      color: var(--magna-gold);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 820;
+    }
+
+    .stage-side strong {
+      display: block;
+      margin-top: 12px;
+      font-size: 26px;
+      line-height: 1.08;
+    }
+
+    .stage-main {
+      padding: 28px;
+    }
+
+    .stage-main h3 {
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    .stage-main p {
+      color: var(--magna-muted);
+      line-height: 1.68;
+      max-width: 740px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(230, 215, 255, .07);
+      border: 1px solid rgba(230, 215, 255, .10);
+      color: var(--magna-lavender);
+      font-size: 12px;
+      line-height: 1.1;
+    }
+
+    .includes {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .include-item {
+      min-height: 146px;
+      padding: 18px;
+      border: 1px solid rgba(230, 215, 255, .10);
+      border-radius: var(--radius);
+      background: rgba(230, 215, 255, .045);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .include-item:hover {
+      transform: translateY(-3px);
+      background: rgba(230, 215, 255, .075);
+    }
+
+    .include-item strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--pure-white);
+      line-height: 1.25;
+    }
+
+    .include-item span {
+      color: var(--magna-muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .not-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .not-item {
+      padding: 18px;
+      border: 1px solid rgba(214, 168, 79, .18);
+      border-radius: var(--radius);
+      background: rgba(214, 168, 79, .055);
+      color: var(--magna-lavender);
+      line-height: 1.45;
+      font-weight: 680;
+      min-height: 100px;
+    }
+
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .benefit {
+      padding: 24px;
+      border-left: 1px solid rgba(214, 168, 79, .60);
+      background: linear-gradient(90deg, rgba(214,168,79,.10), rgba(230,215,255,.035));
+      border-radius: var(--radius);
+    }
+
+    .benefit strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .benefit span {
+      color: var(--magna-muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .investment {
+      display: grid;
+      grid-template-columns: minmax(0, .86fr) minmax(320px, .54fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .investment-card {
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .investment-card.featured {
+      border-color: rgba(183, 76, 255, .30);
+      background:
+        radial-gradient(circle at 80% 12%, rgba(183,76,255,.22), transparent 30%),
+        linear-gradient(180deg, rgba(17,16,24,.90), rgba(5,3,10,.64));
+    }
+
+    .price {
+      margin: 22px 0 10px;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: .9;
+      font-weight: 880;
+    }
+
+    .price small {
+      font-size: 20px;
+      color: var(--magna-muted);
+      font-weight: 680;
+    }
+
+    .payment-line {
+      color: var(--magna-lavender);
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .fine-print {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(230, 215, 255, .10);
+      color: var(--magna-muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid rgba(230, 215, 255, .10);
+      border-radius: var(--radius);
+      background: rgba(230, 215, 255, .045);
+    }
+
+    .step b {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--core-gradient);
+      font-size: 13px;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .step span {
+      color: var(--magna-muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .final-cta {
+      padding: 54px;
+      border: 1px solid rgba(230, 215, 255, .16);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 14% 4%, rgba(109,44,255,.30), transparent 34%),
+        radial-gradient(circle at 88% 100%, rgba(214,168,79,.18), transparent 34%),
+        linear-gradient(135deg, rgba(17,16,24,.88), rgba(5,3,10,.72));
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      max-width: 920px;
+      margin: 0 auto 18px;
+    }
+
+    .final-cta p {
+      max-width: 720px;
+      margin: 0 auto 28px;
+      color: var(--magna-muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .editable-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .editable {
+      padding: 14px;
+      border: 1px dashed rgba(230, 215, 255, .18);
+      border-radius: var(--radius);
+      background: rgba(230, 215, 255, .045);
+    }
+
+    .editable span {
+      display: block;
+      color: var(--magna-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: 8px;
+    }
+
+    .editable strong {
+      display: block;
+      color: var(--pure-white);
+      line-height: 1.3;
+    }
+
+    footer {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 36px 0 52px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-top: 1px solid rgba(230, 215, 255, .10);
+      color: var(--magna-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .72s ease, transform .72s ease;
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .philosophy,
+      .investment {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
+        min-height: 500px;
+      }
+
+      .grid-3,
+      .includes,
+      .benefit-grid,
+      .editable-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .not-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .stage {
+        grid-template-columns: 1fr;
+      }
+
+      .stage-side {
+        border-right: 0;
+        border-bottom: 1px solid rgba(230, 215, 255, .10);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-inner,
+      .section,
+      footer {
+        width: min(100% - 28px, var(--max));
+      }
+
+      .brand-copy span {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 44px;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .meta-row,
+      .grid-2,
+      .grid-3,
+      .mini-grid,
+      .includes,
+      .not-list,
+      .benefit-grid,
+      .editable-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .path {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+        text-align: center;
+      }
+
+      .hero-panel,
+      .system-card,
+      .panel,
+      .card,
+      .investment-card,
+      .final-cta {
+        padding: 22px;
+      }
+
+      .hero-panel {
+        min-height: auto;
+      }
+
+      .signal-ring {
+        width: 280px;
+        height: 280px;
+      }
+
+      .system-card {
+        margin-top: 82px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#inicio" aria-label="Magna">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <path d="M10 44V14l22 19 22-19v30h-9V32L32 43 19 32v12H10Z" fill="#F7F4FF"/>
+              <path d="M16 52 32 40l16 12-6 6-10-8-10 8-6-6Z" fill="url(#markGradient)"/>
+              <defs>
+                <linearGradient id="markGradient" x1="16" y1="40" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6D2CFF"/>
+                  <stop offset=".68" stop-color="#B74CFF"/>
+                  <stop offset="1" stop-color="#D6A84F"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="brand-copy">
+            <strong>Magna</strong>
+            <span>Growth intelligence proposal</span>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Secciones">
+          <a href="#diagnostico">Diagnostico</a>
+          <a href="#programa">Programa</a>
+          <a href="#incluye">Incluye</a>
+          <a href="#inversion">Inversion</a>
+        </nav>
+        <a class="button secondary" href="#cta">Avanzar</a>
+      </div>
+    </header>
+
+    <main id="inicio">
+      <section class="section hero">
+        <div class="hero-grid">
+          <div data-reveal>
+            <div class="eyebrow">Propuesta estrategica 90 dias</div>
+            <h1>Convertir alcance en <span class="gradient-text">clientes reales</span>.</h1>
+            <p class="hero-copy">Jahir no necesita publicar por publicar. Necesita un sistema que conecte marca personal, contenido, reservas, seguimiento y crecimiento comercial para que G5 deje de depender solo del boca a boca.</p>
+            <div class="hero-actions">
+              <a class="button" href="#programa">Ver sistema de crecimiento</a>
+              <a class="button secondary" href="#problema">Entender el diagnostico</a>
+            </div>
+            <div class="meta-row" aria-label="Datos editables">
+              <div class="meta-card">
+                <div class="label">Cliente</div>
+                <div class="value">Jahir Santana</div>
+              </div>
+              <div class="meta-card">
+                <div class="label">Negocio</div>
+                <div class="value">G5 Barber Studio</div>
+              </div>
+              <div class="meta-card">
+                <div class="label">Fecha</div>
+                <div class="value">Junio 2026</div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-panel" data-reveal>
+            <div class="signal-ring" aria-hidden="true"></div>
+            <div class="proposal-stamp">
+              <div class="brand">
+                <span class="brand-mark" aria-hidden="true">
+                  <svg viewBox="0 0 64 64">
+                    <path d="M10 44V14l22 19 22-19v30h-9V32L32 43 19 32v12H10Z" fill="#F7F4FF"/>
+                    <path d="M16 52 32 40l16 12-6 6-10-8-10 8-6-6Z" fill="url(#markGradient2)"/>
+                    <defs>
+                      <linearGradient id="markGradient2" x1="16" y1="40" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#6D2CFF"/>
+                        <stop offset=".68" stop-color="#B74CFF"/>
+                        <stop offset="1" stop-color="#D6A84F"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </span>
+                <span class="brand-copy">
+                  <strong>Magna</strong>
+                  <span>Sistemas de crecimiento</span>
+                </span>
+              </div>
+              <div class="placeholder-logo">Logo G5<br>Barber Studio</div>
+            </div>
+            <div class="system-card">
+              <div class="label">Motor comercial recomendado</div>
+              <h2>Contenido -> confianza -> conversion.</h2>
+              <p class="small-note">Un recorrido simple para que cada persona que descubre a Jahir tenga un siguiente paso claro: conocer la marca, reservar, vivir la experiencia, volver y recomendar.</p>
+              <div class="path" aria-label="Sistema de conversion">
+                <div class="path-item">Atraccion</div>
+                <div class="arrow">-></div>
+                <div class="path-item">Reserva</div>
+                <div class="arrow">-></div>
+                <div class="path-item">Recompra</div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="problema">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Problema actual</div>
+            <h2>El negocio tiene movimiento. Lo que falta es sistema.</h2>
+          </div>
+          <p class="section-intro">G5 ya atiende clientes, tiene redes y tiene demanda. El punto critico no es la existencia del negocio: es que el crecimiento todavia depende demasiado de la presencia diaria, los referidos y la publicacion sin arquitectura comercial.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card" data-reveal>
+            <div class="number">01</div>
+            <h3>Atencion sin direccion</h3>
+            <p>El contenido puede generar visualizaciones, pero si no existe un punto claro de reserva, captura o seguimiento, la atencion se pierde.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="number">02</div>
+            <h3>Diferenciacion poco visible</h3>
+            <p>La barberia puede ofrecer una buena experiencia, pero si esa experiencia no se comunica como propuesta de valor, el mercado compara por precio.</p>
+          </article>
+          <article class="card" data-reveal>
+            <div class="number">03</div>
+            <h3>Escalabilidad limitada</h3>
+            <p>Sin procesos, automatizacion, metrica y recompra, cada cliente depende de gestion manual y el negocio queda atrapado en la silla.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="diagnostico">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Diagnostico Magna</div>
+            <h2>No es un problema de redes. Es un problema de conversion.</h2>
+          </div>
+          <p class="section-intro">La cuenta no necesita mas actividad sin direccion. Necesita una estructura que convierta visibilidad en confianza, confianza en conversacion y conversacion en citas reservadas.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel big" data-reveal>
+            <h3>Cuellos de botella detectados</h3>
+            <div class="diagnosis-list">
+              <div class="diagnosis-item"><span></span>Falta de posicionamiento claro para Jahir como marca personal.</div>
+              <div class="diagnosis-item"><span></span>Contenido con potencial, pero sin recorrido comercial.</div>
+              <div class="diagnosis-item"><span></span>Dependencia del boca a boca y de reservas manuales.</div>
+              <div class="diagnosis-item"><span></span>Ausencia de automatizacion y seguimiento.</div>
+              <div class="diagnosis-item"><span></span>Marca poco memorable frente a un mercado saturado.</div>
+              <div class="diagnosis-item"><span></span>Escasa captura de datos para reactivar clientes.</div>
+            </div>
+          </div>
+          <div class="panel" data-reveal>
+            <h3>Lectura estrategica</h3>
+            <p>Jahir puede convertirse en el rostro que le da confianza al negocio, mientras G5 funciona como el punto fisico donde esa confianza se convierte en experiencia, reserva y recompra.</p>
+            <p>El objetivo no es fabricar una imagen artificial. Es ordenar lo que ya existe: historia, criterio, servicio, contenido, experiencia y oportunidad local.</p>
+            <div class="quote-band">
+              <p>De barberia activa a marca con motor comercial.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="filosofia">
+        <div class="philosophy">
+          <div class="panel big" data-reveal>
+            <div class="section-kicker">Nuestra filosofia</div>
+            <h2>Magna no vende publicaciones.</h2>
+            <p>Construimos sistemas de crecimiento que unen posicionamiento, contenido, conversion y seguimiento. La meta no es verse activo. La meta es generar confianza, conversaciones comerciales y ventas medibles.</p>
+          </div>
+          <div class="mini-grid" data-reveal>
+            <div class="mini">
+              <strong>Posicionamiento</strong>
+              <span>Definir como debe ser percibido Jahir y por que elegir G5.</span>
+            </div>
+            <div class="mini">
+              <strong>Contenido</strong>
+              <span>Crear piezas con intencion: autoridad, confianza, prueba social y reserva.</span>
+            </div>
+            <div class="mini">
+              <strong>Conversion</strong>
+              <span>Reducir friccion para que el interes se convierta en cita.</span>
+            </div>
+            <div class="mini">
+              <strong>Escalamiento</strong>
+              <span>Ordenar metricas, automatizacion y recompra para crecer con control.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="necesita">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Lo que necesita realmente</div>
+            <h2>Un ecosistema, no una parrilla de posts.</h2>
+          </div>
+          <p class="section-intro">La barberia necesita un sistema donde cada activo cumpla una funcion: atraer, educar, probar, convertir, fidelizar y medir.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card" data-reveal>
+            <h3>Marca personal</h3>
+            <p>Jahir debe dejar de ser percibido solo como un barbero y empezar a ocupar un lugar claro: criterio, imagen masculina, servicio y experiencia.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Ruta de reserva</h3>
+            <p>Una persona interesada debe saber donde reservar, que servicios existen, que esperar y como confirmar sin depender de respuestas tardias.</p>
+          </article>
+          <article class="card" data-reveal>
+            <h3>Maquina de confianza</h3>
+            <p>El contenido debe mostrar autoridad, resultados, experiencia del local, clientes reales y argumentos que eleven la percepcion de valor.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="programa">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Programa de crecimiento</div>
+            <h2>Sistema de 90 dias para Jahir + G5.</h2>
+          </div>
+          <p class="section-intro">Un proceso de implementacion dividido en tres etapas: primero se corrige la base comercial, luego se activa una maquina de atraccion y finalmente se optimiza la conversion.</p>
+        </div>
+        <div class="timeline">
+          <article class="stage" data-reveal>
+            <div class="stage-side">
+              <span class="week">Semanas 1-4</span>
+              <strong>Etapa 1</strong>
+            </div>
+            <div class="stage-main">
+              <h3>Diagnostico + Posicionamiento + Base Comercial</h3>
+              <p>Construimos los cimientos: auditoria, diagnostico, posicionamiento, optimizacion de redes, biografia, destacados, CTA, sistema de reservas, link en bio, mensajes comerciales y organizacion del ecosistema digital.</p>
+              <div class="tag-list">
+                <span class="tag">Auditoria estrategica</span>
+                <span class="tag">Bio y CTA</span>
+                <span class="tag">Reservas</span>
+                <span class="tag">Mensajes comerciales</span>
+                <span class="tag">Ecosistema digital</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="stage" data-reveal>
+            <div class="stage-side">
+              <span class="week">Semanas 5-9</span>
+              <strong>Etapa 2</strong>
+            </div>
+            <div class="stage-main">
+              <h3>Sistema de Atraccion</h3>
+              <p>Diseñamos la maquina de contenido: pilares, guiones, ideas de reels, direccion creativa, produccion, calendario, estrategia de autoridad y contenido de confianza para que la marca crezca con intencion.</p>
+              <div class="tag-list">
+                <span class="tag">Pilares de contenido</span>
+                <span class="tag">Guiones</span>
+                <span class="tag">Direccion creativa</span>
+                <span class="tag">Produccion</span>
+                <span class="tag">Autoridad</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="stage" data-reveal>
+            <div class="stage-side">
+              <span class="week">Semanas 10-13</span>
+              <strong>Etapa 3</strong>
+            </div>
+            <div class="stage-main">
+              <h3>Conversion + Escalamiento</h3>
+              <p>Activamos el sistema comercial: embudo, automatizaciones, WhatsApp, ManyChat, seguimiento, fidelizacion, recompra, campañas locales, optimizacion comercial y metricas.</p>
+              <div class="tag-list">
+                <span class="tag">Embudo</span>
+                <span class="tag">WhatsApp</span>
+                <span class="tag">ManyChat</span>
+                <span class="tag">Fidelizacion</span>
+                <span class="tag">Metricas</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="incluye">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Que incluye</div>
+            <h2>El cliente compra un sistema completo.</h2>
+          </div>
+          <p class="section-intro">No es una bolsa de entregables aislados. Cada componente esta conectado para elevar percepcion, facilitar reserva y construir una base comercial mas sostenible.</p>
+        </div>
+        <div class="includes" data-reveal>
+          <div class="include-item"><strong>Auditoria estrategica</strong><span>Revision de marca, contenido, conversion, redes y oportunidades.</span></div>
+          <div class="include-item"><strong>Posicionamiento</strong><span>Definicion de mensaje central, diferenciador y narrativa comercial.</span></div>
+          <div class="include-item"><strong>Optimizacion de perfiles</strong><span>Bio, destacados, CTA, link en bio y ruta de accion clara.</span></div>
+          <div class="include-item"><strong>Sistema de reservas</strong><span>Ruta para que el interes llegue a WhatsApp o agenda con menos friccion.</span></div>
+          <div class="include-item"><strong>Pilares de contenido</strong><span>Arquitectura editorial para autoridad, confianza, prueba y conversion.</span></div>
+          <div class="include-item"><strong>Guiones y calendario</strong><span>Ideas accionables para grabar con direccion y consistencia.</span></div>
+          <div class="include-item"><strong>Automatizaciones</strong><span>Mensajes, seguimiento y captura para no perder oportunidades.</span></div>
+          <div class="include-item"><strong>Metricas de crecimiento</strong><span>Indicadores simples para medir reservas, leads, conversion y recompra.</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="no-incluye">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Que no hacemos</div>
+            <h2>No somos community management.</h2>
+          </div>
+          <p class="section-intro">Magna no entra para llenar un calendario de publicaciones. Entra para construir el motor que convierte la atencion en crecimiento.</p>
+        </div>
+        <div class="not-list" data-reveal>
+          <div class="not-item">No vendemos posts sueltos.</div>
+          <div class="not-item">No hacemos diseños sin estrategia.</div>
+          <div class="not-item">No publicamos por publicar.</div>
+          <div class="not-item">No sustituimos la operacion diaria.</div>
+          <div class="not-item">No prometemos resultados garantizados.</div>
+        </div>
+      </section>
+
+      <section class="section" id="beneficios">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Beneficios esperados</div>
+            <h2>Lo que deberia cambiar en 90 dias.</h2>
+          </div>
+          <p class="section-intro">El resultado esperado es una operacion mas clara, mas medible y mejor preparada para crecer. Las metricas dependeran de ejecucion, capacidad operativa y respuesta del mercado.</p>
+        </div>
+        <div class="benefit-grid" data-reveal>
+          <div class="benefit"><strong>Mayor autoridad</strong><span>Jahir comunica criterio, experiencia y liderazgo, no solo servicios.</span></div>
+          <div class="benefit"><strong>Mas confianza</strong><span>El contenido muestra proceso, resultados, local, experiencia y clientes reales.</span></div>
+          <div class="benefit"><strong>Mas reservas</strong><span>La ruta de conversion reduce friccion y captura mejor el interes.</span></div>
+          <div class="benefit"><strong>Marca mas solida</strong><span>G5 deja de competir solo por precio y empieza a sostener valor percibido.</span></div>
+          <div class="benefit"><strong>Mejor experiencia</strong><span>El cliente entiende que comprar, como reservar y que esperar.</span></div>
+          <div class="benefit"><strong>Base para escalar</strong><span>El negocio queda preparado para recompra, referidos, campañas y nuevas lineas.</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="inversion">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Inversion</div>
+            <h2>Programa completo de 90 dias.</h2>
+          </div>
+          <p class="section-intro">Una implementacion estrategica para ordenar posicionamiento, contenido, reservas, conversion, automatizacion y medicion comercial.</p>
+        </div>
+        <div class="investment">
+          <div class="investment-card featured" data-reveal>
+            <div class="label">Sistema de crecimiento Magna</div>
+            <div class="price">$2.500 <small>USD</small></div>
+            <p class="payment-line">Valor total por 3 meses de implementacion. Pago por etapas: $833,33 al inicio de cada mes.</p>
+            <div class="tag-list">
+              <span class="tag">Diagnostico</span>
+              <span class="tag">Posicionamiento</span>
+              <span class="tag">Atraccion</span>
+              <span class="tag">Conversion</span>
+              <span class="tag">Automatizacion</span>
+              <span class="tag">Metricas</span>
+            </div>
+            <p class="fine-print">Modalidades disponibles: pago unico preferencial de $2.000 USD o pago por etapas de $833,33 al inicio de cada mes durante 3 meses. El alcance puede ajustarse dependiendo de las prioridades, capacidad operativa y forma de implementacion definida con el cliente. La inversion no garantiza resultados especificos; el programa construye el sistema, mejora la estructura comercial y deja al negocio mejor preparado para captar, convertir y retener clientes.</p>
+          </div>
+          <div class="investment-card" data-reveal>
+            <h3>Que esta comprando Jahir</h3>
+            <p class="small-note">No esta contratando manejo de redes. Esta contratando una arquitectura de crecimiento para que la marca personal y la barberia trabajen como un ecosistema comercial.</p>
+            <div class="diagnosis-list">
+              <div class="diagnosis-item"><span></span>Claridad de marca y mensaje.</div>
+              <div class="diagnosis-item"><span></span>Ruta para convertir interes en reserva.</div>
+              <div class="diagnosis-item"><span></span>Sistema de contenido con intencion.</div>
+              <div class="diagnosis-item"><span></span>Procesos para seguimiento y recompra.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pasos">
+        <div class="section-head" data-reveal>
+          <div>
+            <div class="section-kicker">Proximos pasos</div>
+            <h2>Una decision simple, una implementacion ordenada.</h2>
+          </div>
+          <p class="section-intro">Para avanzar, definimos aprobacion, datos finales, calendario de trabajo y primera sesion de implementacion.</p>
+        </div>
+        <div class="step-list" data-reveal>
+          <div class="step">
+            <b>1</b>
+            <div><strong>Aprobacion de alcance</strong><span>Confirmar que el programa de 90 dias responde a la prioridad actual de Jahir y G5.</span></div>
+          </div>
+          <div class="step">
+            <b>2</b>
+            <div><strong>Datos de configuracion</strong><span>Completar WhatsApp, servicios, precios, horarios, accesos y activos de marca disponibles.</span></div>
+          </div>
+          <div class="step">
+            <b>3</b>
+            <div><strong>Inicio de etapa 1</strong><span>Agendar la sesion de diagnostico y construir la base comercial de la propuesta.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cta">
+        <div class="final-cta" data-reveal>
+          <div class="section-kicker">CTA final</div>
+          <h2>Construyamos el sistema que G5 necesita para crecer con direccion.</h2>
+          <p>Si Jahir esta listo para dejar de depender solo del boca a boca y convertir su contenido en una herramienta comercial, el siguiente paso es aprobar la implementacion y comenzar con la base estrategica.</p>
+          <div class="hero-actions" style="justify-content:center">
+            <a class="button" href="https://wa.me/593997821879">Reservar reunion estrategica</a>
+            <a class="button secondary" href="#inversion">Revisar inversion</a>
+          </div>
+          <div class="editable-grid">
+            <div class="editable"><span>WhatsApp</span><strong>+593 99 782 1879</strong></div>
+            <div class="editable"><span>Presentado por</span><strong>Magna Ocho</strong></div>
+            <div class="editable"><span>Cargo</span><strong>Maholy Reyna · CEO & Founder de Magna</strong></div>
+            <div class="editable"><span>Datos cliente</span><strong>Jahir Santana</strong></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Magna 8 · Growth systems · Propuesta comercial confidencial</div>
+      <div>Documento editable · Actualizar logos, WhatsApp, firma y fecha antes de presentar</div>
+    </footer>
+  </div>
+
+  <script>
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16 });
+
+    revealItems.forEach((item) => observer.observe(item));
+  </script>
+</body>
+</html>
